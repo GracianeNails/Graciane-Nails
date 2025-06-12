@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Graciane Horácio - Especialista em Unhas</title>
+  
+  <!-- Google Fonts: Great Vibes para títulos, Montserrat para textos -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset e Fontes */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #fafafa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #e91e63, #f48fb1);
+      color: white;
+      padding: 4rem 1rem 3rem;
+      text-align: center;
+      position: relative;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+      box-shadow: 0 8px 20px rgba(233,30,99,0.3);
+    }
+    .profile-img {
+      position: absolute;
+      top: 0.2cm;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 5px solid white;
+      overflow: hidden;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+      background: white;
+      transition: transform 0.3s ease;
+    }
+    .profile-img:hover {
+      transform: translateX(-50%) scale(1.05);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.4);
+    }
+    .profile-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      margin-top: 130px;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.25rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    /* NAV */
+    nav {
+      margin: 2rem 0;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: #e91e63;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      transition: background 0.3s, color 0.3s;
+    }
+    nav a:hover {
+      background: rgba(233,30,99,0.1);
+      color: #ad1457;
+    }
+
+    /* MAIN e SEÇÕES */
+    main {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    .section-wrapper {
+      background: white;
+      padding: 2rem 1.5rem;
+      margin-bottom: 3rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(233,30,99,0.1);
+      text-align: center;
+    }
+    .section-wrapper h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8rem;
+      color: #b71c46;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 0.5rem;
+      white-space: nowrap;
+    }
+    .section-wrapper h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: #e91e63;
+      border-radius: 2px;
+    }
+    .section-wrapper p {
+      font-size: 1rem;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* SOBRE MIM */
+    #sobre .sobre-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1rem;
+      text-align: left;
+    }
+    #sobre .sobre-img {
+      flex: 1 1 280px;
+      max-width: 280px;
+    }
+    #sobre .sobre-img img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 6px 15px rgba(233,30,99,0.3);
+      object-fit: cover;
+    }
+    #sobre .sobre-text {
+      flex: 2 1 400px;
+      font-size: 1.1rem;
+      color: #444;
+      line-height: 1.7;
+    }
+
+    /* GALERIA e CERTIFICADOS */
+    .gallery, .certificados {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .gallery img, .certificados img {
+      width: 260px;
+      height: 200px;
+      object-fit: cover;
+      box-shadow: 0 6px 16px rgba(233,30,99,0.15);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-radius: 16px;
+    }
+    .gallery img:hover, .certificados img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 20px rgba(233,30,99,0.25);
+    }
+
+    /* TABELA DE PREÇOS */
+    table {
+      width: 85%;
+      margin: 1rem auto;
+      border-collapse: collapse;
+      font-size: 1.15rem;
+      box-shadow: 0 6px 16px rgba(233,30,99,0.15);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    th {
+      background: #f8bbd0;
+      color: #880e4f;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+    td {
+      text-align: center;
+      color: #555;
+    }
+
+    /* CONTATO */
+    .contact-links {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .contact-links img {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+    .contact-links img:hover {
+      transform: scale(1.2);
+    }
+
+    /* FIXED WHATSAPP / INSTAGRAM */
+    .whatsapp-fixed, .instagram-fixed {
+      position: fixed;
+      bottom: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: transform 0.3s;
+      z-index: 100;
+    }
+    .whatsapp-fixed:hover, .instagram-fixed:hover {
+      transform: scale(1.1);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #f3e5f5;
+      color: #880e4f;
+      font-weight: 500;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      margin-top: 4rem;
+      box-shadow: 0 -4px 12px rgba(233,30,99,0.2);
+    }
+
+    /* MODAL */
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+    .modal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 12px;
+      animation: kenburns 0.3s ease-out forwards;
+    }
+    @keyframes kenburns {
+      from { transform: scale(1); opacity: 0; }
+      to   { transform: scale(1.05); opacity: 1; }
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 820px) {
+      .gallery img, .certificados img { width: 200px; height: 150px; }
+      table { width: 95%; }
+      header h1 { font-size: 2.8rem; margin-top: 120px; }
+      header p { font-size: 1.1rem; }
+      nav a { font-size: 1rem; margin: 0 0.6rem; }
+      #sobre .sobre-container { flex-direction: column; text-align: center; }
+      #sobre .sobre-text { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="profile-img">
+      <img src="Graah.jpg" alt="Foto de perfil da Graciane Horácio" loading="lazy" />
+    </div>
+    <h1>Graciane Horácio</h1>
+    <p>Especialista em unhas, beleza, estética e bem-estar</p>
+  </header>
+
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#sobre">Sobre Mim</a>
+    <a href="#certificados">Certificados</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <main>
+    <section id="inicio" class="section-wrapper">
+      <h2>Início</h2>
+      <p>Bem-vindos ao meu espaço de cuidados e beleza. Aqui você encontra serviços personalizados, técnicas modernas e produtos de alta qualidade.</p>
+    </section>
+
+    <section id="servicos" class="section-wrapper">
+      <h2>Serviços e Valores</h2>
+      <p>Ofereço desde alongamentos a esmaltações especiais, sempre com atenção aos detalhes e conforto. Confira abaixo valores médios:</p>
+      <table>
+        <thead>
+          <tr><th>Procedimento</th><th>Valor (R$)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Alongamentos</td><td>200,00</td></tr>
+          <tr><td>Manutenção</td><td>150,00</td></tr>
+          <tr><td>Banho em Gel</td><td>150,00</td></tr>
+          <tr><td>Esmaltação em gel</td><td>100,00</td></tr>
+          <tr><td>Blindagem Estrutural</td><td>120,00</td></tr>
+          <tr><td>Blindagem Básica</td><td>75,00</td></tr>
+          <tr><td>Remoção</td><td>50,00</td></tr>
+          <tr><td>Reposição de unha</td><td>15,00</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="galeria" class="section-wrapper">
+      <h2>Galeria de Trabalhos</h2>
+      <div class="gallery">
+        <img src="Unhas1.jpg" alt="Unha decorada 1" onclick="openModal(this.src)" />
+        <img src="Unhas2.jpg" alt="Unha decorada 2" onclick="openModal(this.src)" />
+        <img src="Unhas3.jpg" alt="Unha decorada 3" onclick="openModal(this.src)" />
+      </div>
+    </section>
+
+    <section id="sobre" class="section-wrapper">
+  <h2>Sobre Mim</h2>
+  <div class="sobre-container">
+    <div class="sobre-img">
+      <img src="Graciane.jpg" alt="Grahsorrindo" />
+    </div>
+    <div class="sobre-text">
+      <p>Olá! Me chamo Graciane Horácio e sou especialista em alongamento de unhas há mais de 9 anos, com foco no embelezamento e cuidados personalizados para cada cliente. Trabalho com amor e dedicação para oferecer experiências únicas, utilizando produtos de qualidade e técnicas modernas. Aqui, seu bem-estar e autoestima estão sempre em primeiro lugar!</p>
+    </div>
+  </div>
+</section>
+
+
+    <section id="certificados" class="section-wrapper">
+      <h2>Certificados</h2>
+      <div class="certificados">
+        <img src="Certificado1.jpg" alt="Certificado 1" onclick="openModal(this.src)" />
+        <img src="Certificado2.jpg" alt="Certificado 2" onclick="openModal(this.src)" />
+        <img src="Certificado3.jpg" alt="Certificado 3" onclick="openModal(this.src)" />
+        <img src="Certificado4.jpg" alt="Certificado 4" onclick="openModal(this.src)" />
+        <img src="Certificado5.jpg" alt="Certificado 5" onclick="openModal(this.src)" />
+        <img src="Certificado6.jpg" alt="Certificado 6" onclick="openModal(this.src)" />
+        <img src="Certificado7.jpg" alt="Certificado 7" onclick="openModal(this.src)" />
+      </div>
+    </section>
+
+    <section id="contato" class="section-wrapper">
+      <h2>Contato</h2>
+      <p>Para agendamentos e dúvidas, estou disponível via WhatsApp e Instagram. Será um prazer atendê-la!</p>
+      <div class="contact-links">
+        <a href="https://wa.me/+5517992239221" target="_blank"><img src="Whats.png" alt="WhatsApp" /></a>
+        <a href="https://instagram.com/grahoracionails" target="_blank"><img src="Insta.png" alt="Instagram" /></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Graciane Horácio. Todos os direitos reservados.
+  </footer>
+
+  <div class="modal" id="modal" onclick="closeModal()">
+    <img id="modal-img" src="" alt="Imagem ampliada" />
+  </div>
+
+  <script>
+    function openModal(src) {
+      const m = document.getElementById('modal');
+      document.getElementById('modal-img').src = src;
+      m.style.display = 'flex';
+    }
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
+
